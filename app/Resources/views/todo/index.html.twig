@@ -5,7 +5,6 @@
 	<style>
 		.responsive-card-table {
 			border-collapse: collapse;
-			margin: 0 auto;
 		}
 
 		.responsive-card-table.unstriped tbody {
@@ -82,25 +81,32 @@
 		}
 	</style>
 
-	<table class="responsive-card-table unstriped">
-		<thead>
-		<tr>
-			<th>Todo Name</th>
-			<th>Due date</th>
-			<th>View Details</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td data-label="First Name">Bruce</td>
-			<td data-label="Last Name">Wayne</td>
-			<td data-label="Last Name">
-				<a href="/todo/detail/1" class="button success">View</a>
-				<a href="/todo/edit/1" class="button">Edit</a>
-				<a href="/todo/delete/1" class="button alert">Delete</a>
-			</td>
-		</tr>
-		</tbody>
-	</table>
+	<div class="grid-x">
+		<div class="cell">
+			<h2 class="subheader">Latest Todos</h2>
+			<table class="responsive-card-table unstriped">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Todo Name</th>
+					<th>Due date</th>
+					<th>View Details</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th>1</th>
+					<td data-label="First Name">Bruce</td>
+					<td data-label="Last Name">Wayne</td>
+					<td data-label="Last Name">
+						<a href="/todo/detail/1" class="button success">View</a>
+						<a href="/todo/edit/1" class="button">Edit</a>
+						<a href="/todo/delete/1" class="button alert">Delete</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 {% endblock %}
