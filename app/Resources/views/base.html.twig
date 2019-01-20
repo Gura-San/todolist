@@ -1,76 +1,54 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>{% block title %}Welcome!{% endblock %}</title>
-	{% block stylesheets %}{% endblock %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-	<link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'
-		  type='text/css'>
 
+	<title>{% block title %}Welcome!{% endblock %}</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<!-- Custom styles for this template -->
+	<link href="starter-template.css" rel="stylesheet">
+
+	{% block stylesheets %}{% endblock %}
 </head>
+
 <body>
 
-<!-- JQuery -->
-<div class="top-bar">
-	<div class="top-bar-left">
-		<ul class="menu">
-			<li class="menu-text">TodoList</li>
-			<li><a href="/">Home</a></li>
-			<li><a href="/todo/create">Add Todo</a></li>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">TodoList</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/todo/create">Add Todo</a>
+			</li>
 		</ul>
 	</div>
-	<div class="top-bar-right">
-		<ul class="menu">
-			<li><a href="#">Three</a></li>
-			<li><a href="#">Four</a></li>
-			<li><a href="#">Five</a></li>
-			<li><a href="#">Six</a></li>
-		</ul>
-	</div>
-</div>
+</nav>
 
-<div class="container">
-	<div class="grid-x">
-		{% block body %}{% endblock %}
-	</div>
-</div>
+<main role="main" class="container">
 
-<div class="callout large secondary">
 	<div class="row">
-		<div class="large-4 columns">
-			<h5>Vivamus Hendrerit Arcu Sed Erat Molestie</h5>
-			<p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit
-				amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-				Sed molestie augue sit.</p>
-			</h4>
-		</div>
-		<div class="large-3 large-offset-2 columns">
-			<ul class="menu vertical">
-				<li><a href="#">One</a></li>
-				<li><a href="#">Two</a></li>
-				<li><a href="#">Three</a></li>
-				<li><a href="#">Four</a></li>
-			</ul>
-		</div>
-		<div class="large-3 columns">
-			<ul class="menu vertical">
-				<li><a href="#">One</a></li>
-				<li><a href="#">Two</a></li>
-				<li><a href="#">Three</a></li>
-				<li><a href="#">Four</a></li>
-			</ul>
+		<div class="col-md-12">
+			{% block body %}{% endblock %}
 		</div>
 	</div>
-</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/js/foundation.min.js"
-			integrity="sha256-WUKHnLrIrx8dew//IpSEmPN/NT3DGAEmIePQYIEJLLs= sha384-53StQWuVbn6figscdDC3xV00aYCPEz3srBdV/QGSXw3f19og3Tq2wTRe0vJqRTEO sha512-X9O+2f1ty1rzBJOC8AXBnuNUdyJg0m8xMKmbt9I3Vu/UOWmSg5zG+dtnje4wAZrKtkopz/PEDClHZ1LXx5IeOw=="
-			crossorigin="anonymous"></script>
+</main><!-- /.container -->
 
-	<!-- Compressed Foundation JavaScript -->
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	{% block javascripts %}{% endblock %}
+{% block javascripts %}{% endblock %}
+
 </body>
+</html>
