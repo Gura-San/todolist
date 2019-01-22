@@ -106,7 +106,7 @@
 				->add( 'description', TextareaType::class, array( 'attr' => array( 'class' => 'form-control', 'style' => 'margin-bottom:15px' ) ) )
 				->add( 'priority', ChoiceType::class, array( 'choices' => array( 'Low' => 'Low', 'Normal' => 'Normal', 'High' => 'High' ), 'attr' => array( 'class' => 'form-control', 'style' => 'margin-bottom:15px' ) ) )
 				->add( 'due_date', DateTimeType::class, array( 'attr' => array( 'class' => 'formcontrol', 'style' => 'margin-bottom:15px' ) ) )
-				->add( 'save', SubmitType::class, array( 'label' => 'Create Todo', 'attr' => array( 'class' => 'btn btn-success', 'style' => 'margin-bottom:15px' ) ) )
+				->add( 'save', SubmitType::class, array( 'label' => 'Update Todo', 'attr' => array( 'class' => 'btn btn-warning', 'style' => 'margin-bottom:15px' ) ) )
 				->getForm();
 
 			$form->handleRequest( $request );
@@ -149,10 +149,29 @@
 		}
 
 		/**
-		 * @Route("/todo/details/{id}", name="todo_details")
+		 * @Route("/todo/delete/{id}", name="todo_delete")
 		 */
 		public
-		function detailsAction( $id )
+		function deleteAction( $id )
+		{
+			$em   = $this->getDoctrine()->getManager();
+			$todo = $em->getRepository( 'AppBundle:Todo' )->find( $id );
+
+			$em->remove( $todo );
+
+			$em->flush();
+			$this->addFlash(
+				'notice',
+				'Todo Deleted'
+			);
+
+			return $this->redirectToRoute( 'todo_list' );
+		}
+
+		/**
+		 * @Route("/todo/details/{id}", name="todo_details")
+		 */
+		public function detailsAction( $id )
 		{
 			$todo = $this->getDoctrine()
 				->getRepository( 'AppBundle:Todo' )
@@ -162,4 +181,5 @@
 				'todo' => $todo
 			) );
 		}
+
 	}
